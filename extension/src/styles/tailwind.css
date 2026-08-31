@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-base-950 text-ink-50 antialiased;
+  }
+  ::selection {
+    @apply bg-signal/30;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-base-700 rounded-full;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-base-900 border border-base-700 rounded-lg;
+  }
+  .btn-primary {
+    @apply bg-signal text-base-950 font-medium rounded-md px-3 py-2 text-sm hover:bg-signal-glow transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply bg-transparent border border-base-600 text-ink-200 rounded-md px-3 py-2 text-sm hover:border-signal/60 hover:text-signal transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-danger {
+    @apply bg-transparent border border-alert/40 text-alert rounded-md px-3 py-2 text-sm hover:bg-alert/10 transition-colors;
+  }
+  .label-eyebrow {
+    @apply text-[10px] uppercase tracking-[0.14em] text-ink-400 font-mono;
+  }
+}
