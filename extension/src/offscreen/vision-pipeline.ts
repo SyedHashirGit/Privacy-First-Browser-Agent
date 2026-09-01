@@ -133,7 +133,7 @@ async function detectFaces(bitmap: ImageBitmap, mediaRegions: BBox[]): Promise<V
   const { canvas, scale } = createDownscaledCanvas(bitmap, 800);
   const predictions = await model.estimateFaces(canvas, false);
   for (const p of predictions) {
-    if (faceProbability(p.probability) < MIN_FACE_CONFIDENCE) continue;
+    if (faceProbability(p.probability) < 0.5) continue; // Stricter for whole-page fallback to avoid massive hallucinations
     const [x0, y0] = p.topLeft as [number, number];
     const [x1, y1] = p.bottomRight as [number, number];
     detections.push({
@@ -191,7 +191,6 @@ const ID_DOCUMENT_KEYWORDS = [
   'unique identification',
   'driving licence',
   "driver's license",
-  'date of birth',
   'social security',
   'voter id',
   'election commission',

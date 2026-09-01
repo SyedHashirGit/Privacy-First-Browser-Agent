@@ -55,9 +55,15 @@ export function totalPixelsRedacted(regions: RedactionRegion[]): number {
  *  to the server is pure solid fill, no outline, no metadata baked into pixels. */
 export function redactCanvas(canvas: OffscreenCanvas, regions: RedactionRegion[]) {
   const ctx = canvas.getContext('2d')!;
-  ctx.fillStyle = REDACTION_COLOR;
-  for (const { box } of regions) {
-    ctx.fillRect(box.x, box.y, box.w, box.h);
+  for (const r of regions) {
+    ctx.fillStyle = REDACTION_COLOR;
+    ctx.fillRect(r.box.x, r.box.y, r.box.w, r.box.h);
+    
+    // Debug text to identify what triggered the redaction
+    ctx.fillStyle = 'red';
+    ctx.font = '16px monospace';
+    const name = r.label || (r as any).category || 'unknown';
+    ctx.fillText(`${r.source}: ${name}`, r.box.x + 5, r.box.y + 20);
   }
   // Deliberately no ctx.filter = 'blur(...)' anywhere — irreversibility is the point.
 }
