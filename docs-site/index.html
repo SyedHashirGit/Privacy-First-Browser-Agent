@@ -36,7 +36,7 @@
                 <span class="badge">Start Here</span>
             </div>
             <div class="panel-content">
-                <p>First things first, you need the code! Clone it to your local machine:</p>
+                <p>First things first, you need the code! Check out the <a href="https://github.com/SyedHashirGit/Privacy-First-Browser-Agent" target="_blank" style="color: #000; font-weight: bold; text-decoration: underline;">GitHub Repository</a> or clone it directly to your local machine:</p>
                 <div class="code-block">
                     <button class="copy-btn" onclick="copyCode('clone-code')">Copy</button>
                     <code id="clone-code">git clone https://github.com/SyedHashirGit/Privacy-First-Browser-Agent.git
@@ -105,6 +105,55 @@ npm run build</code>
                 </div>
             </section>
         </div>
+
+        <!-- Testing Notes Panel -->
+        <section class="comic-panel step-panel wide-panel" style="background-color: var(--cyan); margin-top: 2rem;">
+            <div class="panel-header">
+                <h2>Issue #4: Field Testing 🧪</h2>
+                <span class="badge" style="background-color: var(--magenta); box-shadow: 2px 2px 0 var(--yellow);">Test Cases</span>
+            </div>
+            <div class="panel-content">
+                <p>Time to put the agent's superpowers to the test! Here are two field missions you can run to verify its redaction and automation abilities:</p>
+                
+                <div class="test-cases-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                    
+                    <!-- Test Case 1 -->
+                    <div class="comic-panel bg-yellow" style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000; text-shadow: none;">Mission A: The PII Shield 🛡️</h3>
+                        <ol style="margin-left: 1.5rem; font-size: 1.1rem; margin-bottom: 1rem; color: #000; text-shadow: none;">
+                            <li>Open a webpage containing sensitive personal info (e.g., your photo, date of birth, phone number).</li>
+                            <li>Ask the agent: <strong>"Go through this page and give me a brief description of it."</strong></li>
+                            <li><strong>Observe the Magic:</strong> 
+                                <ul style="margin-top: 0.5rem; list-style-type: square; margin-left: 1.5rem;">
+                                    <li>The local vision model will intercept and redact your face, DOB, and contact details <strong>before</strong> sending data.</li>
+                                    <li>Watch the <strong>Privacy Budget</strong> to see exactly how many pixels and regions were redacted!</li>
+                                    <li>Check the <strong>Resource Meter</strong> to track local inference vs server round-trip latency.</li>
+                                </ul>
+                            </li>
+                            <li>The cloud VLM will successfully describe the page without ever seeing your personal info!</li>
+                        </ol>
+                    </div>
+
+                    <!-- Test Case 2 -->
+                    <div class="comic-panel bg-magenta" style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Mission B: The Auto-Pilot ✈️</h3>
+                        <ol style="margin-left: 1.5rem; font-size: 1.1rem; margin-bottom: 1rem;">
+                            <li>Open any flight booking website (like MakeMyTrip, Google Flights, etc).</li>
+                            <li>Ask the agent: <strong>"Find and return the cheapest flight from Hyderabad to Bangalore for the 3rd of September 2026."</strong></li>
+                            <li><strong>Observe the Action:</strong>
+                                <ul style="margin-top: 0.5rem; list-style-type: square; margin-left: 1.5rem;">
+                                    <li>The agent will automatically locate the search bars on the page.</li>
+                                    <li>It will autonomously type in the source, destination, and dates.</li>
+                                    <li>It will execute the search and fetch the results for you!</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="comic-panel footer-panel">
