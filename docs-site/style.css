@@ -303,11 +303,51 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
+/* Test Cases Grid */
+.test-cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .grid-layout {
+    .grid-layout, .test-cases-grid {
         grid-template-columns: 1fr;
     }
     .title-3d {
-        font-size: 3rem;
+        font-size: 2.8rem;
+    }
+    .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .panel-header h2 {
+        font-size: 2rem;
+    }
+    .header-panel > div {
+        flex-wrap: wrap;
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    .title-3d {
+        font-size: 2.2rem;
+    }
+    .comic-panel {
+        padding: 1.2rem;
+    }
+    .speech-bubble {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    .code-block {
+        font-size: 0.8rem;
     }
 }
