@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy-First Browser Agent | Hackathon Guide</title>
+    <!-- Fonts for comic theme -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="halftone-bg"></div>
+    
+    <header class="comic-panel header-panel">
+        <h1 class="title-3d">Privacy-First Browser Agent</h1>
+        <p class="subtitle">The Ultimate Hackathon Setup Guide! 💥</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 2rem;">
+            <span class="badge" style="transform: rotate(-3deg);">Team: Byte Masters</span>
+            <span class="badge" style="transform: rotate(3deg); background-color: var(--magenta); color: white;">Problem ID: SIH26171</span>
+        </div>
+    </header>
+
+    <main class="comic-container">
+        <!-- Introduction Panel -->
+        <section class="comic-panel intro-panel" style="margin-bottom: 2rem;">
+            <div class="speech-bubble left">
+                <p>Welcome, Jury! 🦸‍♂️ Here's how you can run this extension locally.</p>
+            </div>
+            <p><strong>Note:</strong> We've included the <code>.env</code> files in the repo so you don't have to add any API keys. Just follow the steps below and you'll be flying in no time!</p>
+        </section>
+
+        <!-- Clone Repo Panel -->
+        <section class="comic-panel step-panel wide-panel" style="background-color: #ff9800; margin-bottom: 2rem;">
+            <div class="panel-header">
+                <h2>Issue #0: Clone the Repository</h2>
+                <span class="badge">Start Here</span>
+            </div>
+            <div class="panel-content">
+                <p>First things first, you need the code! Clone it to your local machine:</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode('clone-code')">Copy</button>
+                    <code id="clone-code">git clone https://github.com/SyedHashirGit/Privacy-First-Browser-Agent.git
+cd Privacy-First-Browser-Agent</code>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-layout">
+            <!-- Server Setup Panel -->
+            <section class="comic-panel step-panel bg-cyan">
+                <div class="panel-header">
+                    <h2>Issue #1: The Backend</h2>
+                    <span class="badge">Server</span>
+                </div>
+                <div class="panel-content">
+                    <p>First, let's boot up the FastAPI server that handles the Gemini 2.5 Flash powers.</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('server-code')">Copy</button>
+                        <code id="server-code">cd server
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000</code>
+                    </div>
+                    <div class="speech-bubble right small">
+                        <p>Or use Docker: <code>docker compose up --build</code></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Extension Setup Panel -->
+            <section class="comic-panel step-panel bg-yellow">
+                <div class="panel-header">
+                    <h2>Issue #2: The Extension</h2>
+                    <span class="badge">Frontend</span>
+                </div>
+                <div class="panel-content">
+                    <p>Next, let's assemble the Chrome extension.</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('ext-code')">Copy</button>
+                        <code id="ext-code">cd extension
+npm install
+npm run build</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chrome Setup Panel -->
+            <section class="comic-panel step-panel bg-magenta wide-panel">
+                <div class="panel-header">
+                    <h2>Issue #3: The Activation</h2>
+                    <span class="badge">Chrome</span>
+                </div>
+                <div class="panel-content steps-list">
+                    <ol>
+                        <li>Open Chrome or Edge and go to <strong><code>chrome://extensions</code></strong></li>
+                        <li>Turn on <strong>Developer mode</strong> (top right corner).</li>
+                        <li>Click <strong>Load unpacked</strong>.</li>
+                        <li>Select the <strong><code>extension/dist</code></strong> folder from the cloned repo.</li>
+                        <li>Click the extension icon in your toolbar and select <strong>Open side panel</strong>!</li>
+                    </ol>
+                    <div class="speech-bubble bottom center-bubble">
+                        <p>Boom! 💥 You're ready to test! Type a task like "fill in the shipping address and go to checkout", pick Assist or Autopilot, and hit Start task.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="comic-panel footer-panel">
+        <p>Built for the SIH Hackathon 🚀</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
